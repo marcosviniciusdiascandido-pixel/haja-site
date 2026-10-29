@@ -1,0 +1,6 @@
+{
+"trailingSlash": true,
+"rewrites": [
+{ "source": "/imobiliaria/:path*", "destination": "https://haja-imobiliario.vercel.app/:path*" }
+]
+}
