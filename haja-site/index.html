@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAJA · Produtora Audiovisual</title>
+<meta name="description" content="A HAJA produz vídeos e fotografias com direção, estratégia e acabamento de cinema para o mercado imobiliário, saúde e eventos. SP | RJ.">
+<meta property="og:title" content="HAJA · Produtora Audiovisual">
+<meta property="og:description" content="Vídeo e fotografia com direção, estratégia e acabamento de cinema. SP | RJ.">
+<meta property="og:image" content="/assets/img/poster-hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E0D0C; --bg-2:#161412; --line:rgba(242,238,232,.12); --line-2:rgba(242,238,232,.22);
+  --text:#F2EEE8; --muted:rgba(242,238,232,.62); --faint:rgba(242,238,232,.38);
+  --accent:#C8865A; --max:1240px; --pad:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Poppins,system-ui,sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.tag{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:14px}
+.tag::before,.tag::after{content:"";width:22px;height:1px;background:currentColor;opacity:.6}
+.tag.left::after{display:none}
+h1,h2,h3{font-weight:300;text-transform:uppercase;letter-spacing:.02em;line-height:1.05}
+.hl{color:var(--text);background:linear-gradient(transparent 62%,rgba(200,134,90,.42) 62%);padding:0 .1em}
+.btn{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--line-2);padding:14px 26px;border-radius:999px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:400;transition:.3s}
+.btn:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn.solid{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:var(--text)}
+section{position:relative;z-index:2}
+
+/* linhas de fundo */
+#lines{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#lines path{fill:none;stroke:rgba(242,238,232,.07);stroke-width:1}
+/* cursor assinatura */
+#ink{position:fixed;inset:0;z-index:60;pointer-events:none}
+
+/* logo */
+.logo{display:inline-flex;align-items:flex-start;font-weight:700;font-size:22px;letter-spacing:.04em;line-height:1}
+.logo svg{width:.55em;height:.55em;margin-left:.05em;margin-top:-.12em}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+header.solid{background:rgba(14,13,12,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:var(--line)}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:76px}
+.nav .l,.nav .r{display:flex;gap:32px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.nav .r{justify-content:flex-end;align-items:center}
+.nav a.link:hover{color:var(--text)}
+.nav .btn{padding:10px 20px;font-size:11px;color:var(--text)}
+.burger{display:none;background:none;border:0;color:var(--text);width:40px;height:40px;cursor:pointer;justify-self:end}
+.burger span{display:block;width:24px;height:1px;background:currentColor;margin:7px auto;transition:.3s}
+.mnav{display:none}
+
+/* hero */
+.hero{min-height:92svh;display:flex;align-items:center;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.73}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,13,12,.6) 0%,rgba(14,13,12,.5) 45%,rgba(14,13,12,.85) 80%,var(--bg) 100%)}
+.hero .wrap{width:100%;padding-top:96px;padding-bottom:clamp(40px,8vh,90px)}
+.hero h1{font-size:clamp(38px,7vw,100px);margin:18px 0 20px;max-width:14ch}
+.hero p{font-size:clamp(15px,1.4vw,18px);color:var(--muted);max-width:44ch;margin-bottom:34px}
+.more{display:inline-flex;align-items:center;gap:16px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--text);transition:color .3s}
+.more:hover{color:var(--accent)}
+.mouse{width:24px;height:38px;border:1.5px solid currentColor;border-radius:14px;position:relative;flex:none}
+.mouse::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:currentColor;animation:wheel 1.8s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(-3px)}30%{opacity:1}70%{opacity:1;transform:translateY(10px)}100%{opacity:0;transform:translateY(12px)}}
+
+/* manifesto */
+.manifesto{padding:clamp(40px,6vw,80px) 0 clamp(80px,10vw,130px);overflow:hidden}
+.manifesto .ph{position:absolute;right:0;top:0;bottom:0;width:min(46%,620px);z-index:-1;opacity:.17;
+  background:url(assets/img/fundadores.jpg) center 20%/cover no-repeat;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%,#000 75%,transparent 100%),linear-gradient(180deg,transparent,#000 18%,#000 82%,transparent);
+  -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,#000 45%,#000 75%,transparent 100%),linear-gradient(180deg,transparent,#000 18%,#000 82%,transparent);mask-composite:intersect}
+.manifesto p.big{font-size:clamp(22px,2.9vw,40px);line-height:1.45;max-width:30ch;margin-top:26px;font-weight:300}
+.manifesto .sig{margin-top:32px;font-size:13px;color:var(--faint);letter-spacing:.1em}
+
+/* nichos */
+.nichos{padding:0 0 clamp(70px,9vw,120px)}
+.nichos .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:46px;flex-wrap:wrap}
+.nichos h2{font-size:clamp(28px,3.6vw,48px)}
+.acc{border-top:1px solid var(--line-2)}
+.item{border-bottom:1px solid var(--line-2)}
+.item button{all:unset;cursor:pointer;width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(16px,3vw,36px);padding:clamp(22px,3vw,36px) 0}
+.item .ico{width:clamp(38px,4.4vw,62px);height:clamp(38px,4.4vw,62px);color:var(--faint);transition:color .3s}
+.item .name{font-size:clamp(34px,6.6vw,92px);font-weight:500;letter-spacing:-.01em;line-height:1;text-transform:none}
+.item .plus{width:clamp(28px,3vw,44px);height:clamp(28px,3vw,44px);position:relative;transition:transform .45s cubic-bezier(.6,0,.2,1)}
+.item .plus::before,.item .plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:var(--text)}
+.item .plus::after{transform:rotate(90deg);transition:transform .45s}
+.item:hover .ico,.item.open .ico{color:var(--accent)}
+.item.open .plus{transform:rotate(180deg)}
+.item.open .plus::after{transform:rotate(0)}
+.item .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.6,0,.2,1)}
+.item.open .body{grid-template-rows:1fr}
+.item .body>div{overflow:hidden}
+.item .inner{display:grid;grid-template-columns:1fr 1.4fr auto;gap:32px;align-items:end;padding:0 0 clamp(28px,3vw,40px) calc(clamp(38px,4.4vw,62px) + clamp(16px,3vw,36px))}
+.item .inner h4{font-weight:400;font-size:clamp(17px,1.6vw,22px)}
+.item .inner p{color:var(--muted);font-size:15px;max-width:52ch}
+
+/* numeros */
+.nums{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(44px,6vw,72px) 0}
+.nums .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.nums .n{font-size:clamp(44px,6vw,84px);font-weight:200;line-height:1}
+.nums .n small{font-size:.45em;vertical-align:top;color:var(--accent);margin-left:4px}
+.nums .lbl{color:var(--muted);font-size:14px;margin-top:12px;max-width:24ch}
+
+/* trabalhos */
+.works{padding:clamp(70px,9vw,120px) 0 0}
+.works .head{margin-bottom:40px}
+.works h2,.bts h2,.steps h2,.deps h2,.brands h2{font-size:clamp(28px,3.6vw,48px);margin-top:18px}
+.wgrid{display:grid;grid-template-columns:3.16fr 1fr 1fr;gap:clamp(14px,2vw,24px)}
+.work.v .cap{padding:16px 16px;gap:10px}
+.work.v .cap b{font-size:clamp(15px,1.3vw,19px);line-height:1.25}
+.work.v .play{width:34px;height:34px;font-size:11px}
+.work{position:relative;border-radius:6px;overflow:hidden;background:var(--bg-2);cursor:pointer}
+.work video{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.82);transition:filter .5s,transform 1.2s cubic-bezier(.2,.6,.2,1)}
+.work:hover video{filter:none;transform:scale(1.03)}
+.work.h{aspect-ratio:16/9}.work.v{aspect-ratio:9/16}.work.wide{aspect-ratio:21/9;margin-top:clamp(14px,2vw,24px)}
+
+.work .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;display:flex;justify-content:space-between;align-items:end;background:linear-gradient(transparent,rgba(14,13,12,.85))}
+.work .cap b{font-weight:500;font-size:clamp(18px,1.8vw,24px);display:block}
+.work .cap span{font-size:10px;letter-spacing:.28em;color:var(--muted);text-transform:uppercase}
+.gal{position:relative;margin-top:clamp(14px,2vw,24px)}
+.photos{display:flex;gap:clamp(12px,1.6vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.photos::-webkit-scrollbar{display:none}
+.photos figure{position:relative;flex:none;height:clamp(240px,27vw,380px);aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:var(--bg-2);scroll-snap-align:start}
+.photos figure.w{aspect-ratio:3/2}
+.gal-nav{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+.gal-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:none;color:var(--text);font-size:16px;cursor:pointer;transition:.3s}
+.gal-nav button:hover:not(:disabled){background:var(--text);color:var(--bg)}
+.gal-nav button:disabled{opacity:.3;cursor:default}
+.photos img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:brightness(.88);transition:filter .5s,transform 1.2s cubic-bezier(.2,.6,.2,1)}
+.photos figure:hover img{filter:none;transform:scale(1.03)}
+.photos figcaption{position:absolute;left:20px;bottom:18px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.work .play{width:42px;height:42px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;flex:none;transition:.3s}
+.work:hover .play{background:var(--text);color:var(--bg)}
+
+/* bastidores */
+.bts{padding:clamp(70px,9vw,120px) 0 0;overflow:hidden}
+.bts .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.bts .head p{color:var(--muted);max-width:38ch;font-size:15px}
+.marquee{display:flex;gap:16px;width:max-content;animation:roll 70s linear infinite}
+.bts:hover .marquee{animation-play-state:paused}
+.marquee figure{height:clamp(300px,38vw,480px);flex:none;border-radius:4px;overflow:hidden}
+.marquee img{height:100%;width:auto;object-fit:cover;transition:transform 1s}
+.marquee figure:hover img{transform:scale(1.04)}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+/* processo */
+.steps{padding:clamp(70px,9vw,120px) 0}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid var(--line-2)}
+.step{padding:30px 26px 10px 0;position:relative}
+.step+.step{padding-left:26px;border-left:1px solid var(--line)}
+.step .k{font-size:12px;color:var(--accent);letter-spacing:.2em}
+.step h3{font-size:clamp(17px,1.5vw,20px);font-weight:400;text-transform:none;letter-spacing:0;margin:14px 0 10px;line-height:1.3}
+.step p{color:var(--muted);font-size:14px}
+
+/* depoimentos */
+.deps{padding:0 0 clamp(70px,9vw,120px)}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.card{background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:clamp(26px,3vw,40px);min-height:300px;display:flex;flex-direction:column;gap:22px}
+.card .score{font-size:64px;font-weight:200;line-height:1}
+.card .score sup{font-size:.3em;color:var(--accent);margin-left:6px}
+.card .who{display:flex;gap:14px;align-items:center}
+.card .av{width:46px;height:46px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:14px;font-weight:500;color:var(--muted)}
+.card .who b{font-weight:500;display:block}
+.card .who span{font-size:12px;color:var(--faint)}
+.stars{letter-spacing:4px;color:var(--accent);font-size:14px}
+.card q{font-size:clamp(17px,1.5vw,20px);line-height:1.5;quotes:"“" "”"}
+.card p{color:var(--muted);font-size:14px}
+
+/* marcas */
+.brands{padding:0 0 clamp(70px,9vw,120px);overflow:hidden}
+.brands .head{margin-bottom:44px}
+.belt{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:38px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.belt .marquee{gap:clamp(56px,7vw,110px);animation-duration:40s;align-items:center}
+.belt .b{font-size:clamp(22px,2.4vw,32px);color:rgba(242,238,232,.42);white-space:nowrap;transition:color .3s}
+.belt .b:hover{color:var(--text)}
+.b1{font-family:Georgia,serif;font-style:italic}.b2{font-weight:300;letter-spacing:.02em}.b3{font-weight:700;font-style:italic}.b4{font-weight:700;text-transform:uppercase;font-size:.7em!important;letter-spacing:.04em;line-height:1}.b5{font-weight:400;letter-spacing:.06em;text-transform:uppercase}.b6{font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+
+/* fechamento */
+.cta{padding:clamp(80px,11vw,140px) 0;text-align:center;border-top:1px solid var(--line)}
+.cta h2{font-size:clamp(34px,5.4vw,76px);max-width:16ch;margin:22px auto 36px}
+.cta .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:44px 0 26px;font-size:14px;color:var(--muted)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.fgrid h5{font-size:11px;letter-spacing:.28em;color:var(--faint);font-weight:400;margin-bottom:16px;text-transform:uppercase}
+.fgrid a{display:block;margin-bottom:8px}.fgrid a:hover{color:var(--text)}
+.fgrid .logo{font-size:28px;color:var(--text);margin-bottom:16px}
+.copy{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--faint)}
+
+/* animação de entrada */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .nav{grid-template-columns:auto 1fr auto}
+  .nav .l,.nav .r{display:none}
+  .nav .logo{grid-column:1}
+  .burger{display:block;grid-column:3}
+  .mnav{display:flex;flex-direction:column;gap:6px;position:fixed;inset:76px 0 auto 0;background:rgba(14,13,12,.97);padding:20px var(--pad) 32px;border-bottom:1px solid var(--line);transform:translateY(-130%);visibility:hidden;transition:transform .45s,visibility 0s .45s;z-index:49}
+  .mnav a{font-size:26px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .mnav .btn{margin-top:18px;justify-content:center;font-size:13px;border-bottom:1px solid var(--line-2)}
+  body.menu .mnav{transform:none;visibility:visible;transition:transform .45s}
+  body.menu .burger span:first-child{transform:translateY(4px) rotate(45deg)}
+  body.menu .burger span:last-child{transform:translateY(-4px) rotate(-45deg)}
+  .hero{min-height:76svh}
+  .manifesto .ph{width:100%;opacity:.12}
+  .item .inner{grid-template-columns:1fr;gap:12px;padding-left:0}
+  .item .inner .btn{justify-self:start;margin-top:6px}
+  .nums .grid{grid-template-columns:1fr;gap:36px}
+  .wgrid{grid-template-columns:1fr 1fr;gap:12px}
+  .wgrid .work.h{grid-column:1/-1}
+  .work.v .cap{padding:12px}
+  .work.v .cap b{font-size:14px}
+  .work.v .cap span{font-size:9px;letter-spacing:.2em}
+  .work.v .play{display:none}
+  .work.wide{aspect-ratio:16/9}
+  .photos{margin-right:calc(-1*var(--pad));padding-right:var(--pad)}
+  .photos figure,.photos figure.w{height:auto;width:66vw;aspect-ratio:1/1}
+  .gal-nav{display:none}
+  .photos figure,  .sgrid{grid-template-columns:1fr 1fr}
+  .step:nth-child(3){padding-left:0;border-left:0}
+  .step{border-bottom:1px solid var(--line);padding-bottom:26px}
+  .dgrid{grid-template-columns:1fr}
+  .card{min-height:0}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){.tag{letter-spacing:.2em;font-size:10px}.hero .tag::after{display:none}.sgrid{grid-template-columns:1fr}.step,.step+.step{padding-left:0;border-left:0}}
+@media (prefers-reduced-motion:reduce){.marquee{animation:none}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg id="lines" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <path d="M-60 180 C 260 60, 420 420, 720 300 S 1180 40, 1520 260"/>
+  <path d="M-40 640 C 220 520, 480 860, 820 700 S 1260 420, 1500 600"/>
+  <path d="M980 -40 C 900 220, 1240 380, 1100 620 S 900 980, 1180 1000"/>
+  <path d="M300 -60 C 380 200, 160 420, 340 640 S 620 900, 520 1000"/>
+</svg>
+<canvas id="ink" aria-hidden="true"></canvas>
+
+<header id="top">
+  <div class="wrap nav">
+    <nav class="l">
+      <a class="link" href="/imobiliaria/">Imobiliário</a>
+      <a class="link" href="/saude">Saúde</a>
+      <a class="link" href="#nichos">Eventos</a>
+    </nav>
+    <a href="/" class="logo" aria-label="HAJA, início">HAJA<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z"/></svg></a>
+    <div class="r">
+      <a class="link" href="#trabalhos">Trabalhos</a>
+      <a class="btn js-wa" href="#">Fale com a gente</a>
+    </div>
+    <button class="burger" aria-label="Abrir menu"><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mnav">
+  <a href="/imobiliaria/">Imobiliário</a>
+  <a href="/saude">Saúde</a>
+  <a href="#nichos">Eventos</a>
+  <a href="#trabalhos">Trabalhos</a>
+  <a class="btn solid js-wa" href="#">Fale com a gente</a>
+</nav>
+
+<main>
+<!-- 2. HERO -->
+<section class="hero">
+  <video src="assets/video/hero.mp4" poster="assets/img/poster-hero.jpg" autoplay muted loop playsinline preload="auto"></video>
+  <div class="wrap">
+    <span class="tag">Produtora audiovisual · SP | RJ</span>
+    <h1>A HAJA transforma sua visão em imagem.</h1>
+    <p>Vídeo e fotografia com direção, estratégia e acabamento de cinema.</p>
+    <a class="more" href="#sobre"><span class="mouse" aria-hidden="true"></span>Conheça mais</a>
+  </div>
+</section>
+
+<!-- 3. MANIFESTO -->
+<section class="manifesto" id="sobre">
+  <div class="ph" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="tag left rv">A HAJA</span>
+    <p class="big rv">A HAJA é uma produtora que entende de <span class="hl">imagem e de negócio</span>. Para cada mercado criamos uma linguagem própria. Do roteiro à entrega final, cuidamos de tudo para que <span class="hl">sua marca seja vista como ela merece</span>.</p>
+    <p class="sig rv">— Vinicius &amp; equipe HAJA</p>
+  </div>
+</section>
+
+<!-- 4. NICHOS -->
+<section class="nichos" id="nichos">
+  <div class="wrap">
+    <div class="head rv">
+      <div><span class="tag left">Nichos que atuamos</span><h2 style="margin-top:18px">Uma linguagem<br>para cada mercado</h2></div>
+    </div>
+    <div class="acc">
+      <div class="item rv">
+        <button aria-expanded="false">
+          <svg class="ico" viewBox="0 0 48 48" fill="currentColor"><path d="M4 44V20L24 6l20 14v24H30V30H18v14z"/></svg>
+          <span class="name">Imobiliário</span><span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="body"><div><div class="inner">
+          <h4>Do stand de vendas à entrega da obra.</h4>
+          <p>Apresentação de stand, acompanhamento de obra, cobertura de eventos e fotografia do imóvel.</p>
+          <a class="btn" href="/imobiliaria/">Ver página →</a>
+        </div></div></div>
+      </div>
+      <div class="item rv">
+        <button aria-expanded="false">
+          <svg class="ico" viewBox="0 0 48 48" fill="currentColor"><path d="M18 4h12v14h14v12H30v14H18V30H4V18h14z"/></svg>
+          <span class="name">Saúde</span><span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="body"><div><div class="inner">
+          <h4>Confiança que se vê.</h4>
+          <p>Conteúdo para clínicas, médicos e profissionais da saúde: institucional, redes sociais e estrutura.</p>
+          <a class="btn" href="/saude">Ver página →</a>
+        </div></div></div>
+      </div>
+      <div class="item rv">
+        <button aria-expanded="false">
+          <svg class="ico" viewBox="0 0 48 48" fill="currentColor"><path d="M24 2c1.2 12 10 20.8 22 22-12 1.2-20.8 10-22 22-1.2-12-10-20.8-22-22C14 22.8 22.8 14 24 2z"/></svg>
+          <span class="name">Eventos</span><span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="body"><div><div class="inner">
+          <h4>A energia do momento, eternizada.</h4>
+          <p>Cobertura de eventos, lançamentos e grandes palcos, com aftermovie e conteúdo para as redes.</p>
+          <a class="btn js-wa" href="#">Quero orçamento →</a>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. NÚMEROS -->
+<section class="nums">
+  <div class="wrap grid">
+    <div class="rv"><div class="n">150<small>+</small></div><div class="lbl">Eventos e marcas atendidas ao longo da nossa trajetória</div></div>
+    <div class="rv"><div class="n">200<small>+</small></div><div class="lbl">Clientes atendidos</div></div>
+    <div class="rv"><div class="n">5.0<small>★</small></div><div class="lbl">De aprovação dos clientes</div></div>
+  </div>
+</section>
+
+<!-- 6. TRABALHOS -->
+<section class="works" id="trabalhos">
+  <div class="wrap">
+    <div class="head rv"><span class="tag left">Trabalhos em destaque</span><h2>O que já fizemos</h2></div>
+    <div class="wgrid">
+      <div class="work h rv">
+        <video src="assets/video/alpha-vert.mp4" poster="assets/img/poster-alpha.jpg" muted loop playsinline preload="none"></video>
+        <div class="cap"><div><span>Imobiliário · Alpha Vert</span><b>Expressão original do bem viver</b></div><div class="play" aria-hidden="true">▶</div></div>
+      </div>
+      <div class="work v rv">
+        <video src="assets/video/charles-do-bronx.mp4" poster="assets/img/poster-charles.jpg" muted loop playsinline preload="none"></video>
+        <div class="cap"><div><span>Eventos</span><b>Charles do Bronx</b></div><div class="play" aria-hidden="true">▶</div></div>
+      </div>
+      <div class="work v rv">
+        <video src="assets/video/dellamed.mp4" poster="assets/img/poster-dellamed.jpg" muted loop playsinline preload="none"></video>
+        <div class="cap"><div><span>Saúde</span><b>Dellamed</b></div><div class="play" aria-hidden="true">▶</div></div>
+      </div>
+    </div>
+    <div class="work wide rv">
+      <video src="assets/video/aftermovie-10x-life.mp4" poster="assets/img/poster-aftermovie.jpg" muted loop playsinline preload="none"></video>
+      <div class="cap"><div><span>Eventos · Aftermovie</span><b>10X Life</b></div><div class="play" aria-hidden="true">▶</div></div>
+    </div>
+    <div class="gal">
+    <div class="photos" id="photos">
+      <figure class="rv"><img src="assets/img/evento-03.jpg" alt="Palestrantes no palco, fotografia HAJA" loading="lazy"><figcaption>Eventos · Fotografia</figcaption></figure>
+      <figure class="rv"><img src="assets/img/evento-01.jpg" alt="Palestrante em evento, fotografia HAJA" loading="lazy"><figcaption>Eventos · Fotografia</figcaption></figure>
+      <figure class="rv"><img src="assets/img/evento-02.jpg" alt="Palestra para plateia, fotografia HAJA" loading="lazy"><figcaption>Eventos · Fotografia</figcaption></figure>
+      <figure class="rv w"><img src="assets/img/evento-04.jpg" alt="Entrevista em estúdio de podcast, fotografia HAJA" loading="lazy" style="object-position:center 18%"><figcaption>Fotografia</figcaption></figure>
+      <figure class="rv w"><img src="assets/img/evento-05.jpg" alt="Elenco de espetáculo de circo, fotografia HAJA" loading="lazy" style="object-position:center 30%"><figcaption>Fotografia</figcaption></figure>
+    </div>
+    <div class="gal-nav"><button class="prev" aria-label="Foto anterior">←</button><button class="next" aria-label="Próxima foto">→</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. BASTIDORES -->
+<section class="bts">
+  <div class="wrap head rv">
+    <div><span class="tag left">Bastidores</span><h2>Por trás das câmeras</h2></div>
+    <p>Equipe em campo, do set montado ao último take.</p>
+  </div>
+  <div class="marquee" id="bts">
+    <figure><img src="assets/img/bastidores-01.jpg" alt="Bastidores: set de estúdio com iluminação" loading="lazy"></figure>
+    <figure><img src="assets/img/bastidores-02.jpg" alt="Bastidores: gravação em estúdio de TV" loading="lazy"></figure>
+    <figure><img src="assets/img/bastidores-03.jpg" alt="Bastidores: integrante da equipe HAJA com câmera" loading="lazy"></figure>
+    <figure><img src="assets/img/bastidores-04.jpg" alt="Bastidores: entrevista com câmera no tripé" loading="lazy"></figure>
+    <figure><img src="assets/img/bastidores-05.jpg" alt="Bastidores: Vinicius com gimbal em obra" loading="lazy"></figure>
+    <figure><img src="assets/img/bastidores-06.jpg" alt="Bastidores: câmera gravando entrevista" loading="lazy"></figure>
+    <figure><img src="assets/img/bastidores-07.jpg" alt="Bastidores: câmera com fone em evento" loading="lazy"></figure>
+    <figure><img src="assets/img/bastidores-08.jpg" alt="Bastidores: gimbal em escritório" loading="lazy"></figure>
+  </div>
+</section>
+
+<!-- 8. PROCESSO -->
+<section class="steps">
+  <div class="wrap">
+    <div class="rv"><span class="tag left">Como trabalhamos</span><h2>Do briefing à entrega</h2></div>
+    <div class="sgrid">
+      <div class="step rv"><span class="k">01</span><h3>Briefing</h3><p>Entendemos seu negócio, seu público e o objetivo do projeto.</p></div>
+      <div class="step rv"><span class="k">02</span><h3>Roteiro e direção</h3><p>Desenhamos a narrativa e planejamos cada cena.</p></div>
+      <div class="step rv"><span class="k">03</span><h3>Captação</h3><p>Equipe e equipamento de cinema no dia da gravação.</p></div>
+      <div class="step rv"><span class="k">04</span><h3>Edição e entrega</h3><p>Montagem, cor e som, nos formatos de cada canal.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. DEPOIMENTOS -->
+<section class="deps">
+  <div class="wrap">
+    <div class="rv"><span class="tag left">Depoimentos</span><h2>Quem já viveu a HAJA</h2></div>
+    <div class="dgrid">
+      <div class="card rv">
+        <div class="score">5.0<sup>★</sup></div>
+        <div><b style="font-weight:500">de aprovação dos clientes</b></div>
+        <p>Nossa nota reflete mais do que qualidade técnica. Ela representa estratégia bem aplicada, atenção aos detalhes e entregas que realmente fazem diferença no negócio dos nossos clientes.</p>
+      </div>
+      <div class="card rv">
+        <div class="who"><div class="av">DP</div><div><b>Dr. Dárcio Pinheiro</b><span>Médico nutrólogo</span></div></div>
+        <div class="stars">★★★★★</div>
+        <q>Mestre, o vídeo ficou incrível, trabalho está sensacional.</q>
+      </div>
+      <div class="card rv">
+        <div class="who"><div class="av">MM</div><div><b>Mirian Malheiros</b><span>Agência imobiliária</span></div></div>
+        <div class="stars">★★★★★</div>
+        <q>Equipe super atenciosa com o cliente e entrega impecável.</q>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. MARCAS -->
+<section class="brands">
+  <div class="wrap head rv"><span class="tag left">Marcas que já atendemos</span></div>
+  <div class="belt"><div class="marquee" id="belt">
+    <span class="b b1">Italínea</span><span class="b b2">dellamed</span><span class="b b3">Frutap</span>
+    <span class="b b4">Jesus<br>Invadiu a Cena</span><span class="b b5">Alpha Vert</span><span class="b b6">Construtora Bacaba</span>
+  </div></div>
+</section>
+
+<!-- 11. FECHAMENTO -->
+<section class="cta">
+  <div class="wrap">
+    <span class="tag rv">Vamos conversar</span>
+    <h2 class="rv">Seu projeto merece ser visto do jeito certo.</h2>
+    <div class="row rv">
+      <a class="btn solid js-wa" href="#">Fale com a gente</a>
+      <a class="btn js-ig" href="#" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 12. RODAPÉ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><span class="logo">HAJA<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z"/></svg></span><p>Produtora audiovisual · SP | RJ</p></div>
+      <div><h5>Nichos</h5><a href="/imobiliaria/">Imobiliário</a><a href="/saude">Saúde</a><a href="#nichos">Eventos</a></div>
+      <div><h5>Redes</h5><a class="js-ig" href="#" target="_blank" rel="noopener">Instagram</a><a class="js-wa" href="#">WhatsApp</a></div>
+      <div><h5>Contato</h5><a class="js-mail" href="#">E-mail</a><a class="js-wa" href="#">WhatsApp</a></div>
+    </div>
+    <div class="copy"><span>© <span id="y"></span> HAJA. Todos os direitos reservados.</span><a href="#top">Voltar ao topo ↑</a></div>
+  </div>
+</footer>
+
+<script>
+/* ===== CONTATOS: troque aqui (os mesmos do site imobiliário) ===== */
+const CONTATO = {
+  whatsapp: "5511914191009",           // só números, com DDI 55 e DDD
+  mensagem: "Olá! Vim pelo site da HAJA e gostaria de um orçamento.",
+  instagram: "https://www.instagram.com/haja.visual/",
+  email: "contato@hajavisual.com.br"
+};
+document.querySelectorAll('.js-wa').forEach(a=>{a.href=`https://wa.me/${CONTATO.whatsapp}?text=${encodeURIComponent(CONTATO.mensagem)}`;a.target="_blank";a.rel="noopener"});
+document.querySelectorAll('.js-ig').forEach(a=>a.href=CONTATO.instagram);
+document.querySelectorAll('.js-mail').forEach(a=>{a.href='mailto:'+CONTATO.email;a.textContent=CONTATO.email});
+document.getElementById('y').textContent=new Date().getFullYear();
+
+/* header sólido ao rolar + parallax das linhas */
+const hdr=document.querySelector('header'), lines=document.getElementById('lines');
+addEventListener('scroll',()=>{const y=scrollY;hdr.classList.toggle('solid',y>40);lines.style.transform=`translateY(${-y*.06}px)`},{passive:true});
+
+/* menu mobile */
+document.querySelector('.burger').onclick=()=>document.body.classList.toggle('menu');
+document.querySelectorAll('.mnav a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu')));
+
+/* acordeão dos nichos */
+document.querySelectorAll('.item button').forEach(b=>b.addEventListener('click',()=>{
+  const it=b.parentElement, open=!it.classList.contains('open');
+  document.querySelectorAll('.item').forEach(i=>{i.classList.remove('open');i.querySelector('button').setAttribute('aria-expanded','false')});
+  if(open){it.classList.add('open');b.setAttribute('aria-expanded','true')}
+}));
+
+/* vídeos dos trabalhos: tocam ao passar o mouse / tocar */
+document.querySelectorAll('.work').forEach(w=>{
+  const v=w.querySelector('video');
+  w.addEventListener('mouseenter',()=>v.play().catch(()=>{}));
+  w.addEventListener('mouseleave',()=>v.pause());
+  w.addEventListener('click',()=>{ if(v.paused){v.play().catch(()=>{})} else if(matchMedia('(pointer:coarse)').matches){v.pause()} else {v.muted=!v.muted} });
+});
+
+/* faixas infinitas: duplica o conteúdo */
+['bts','belt'].forEach(id=>{const m=document.getElementById(id);m.innerHTML+=m.innerHTML;m.querySelectorAll('img').forEach((im,i)=>{if(i>=8)im.alt=''})});
+
+/* carrossel de fotografia */
+(function(){const g=document.getElementById('photos'),pv=document.querySelector('.gal-nav .prev'),nx=document.querySelector('.gal-nav .next');
+  const step=()=>g.querySelector('figure').offsetWidth+20;
+  const upd=()=>{pv.disabled=g.scrollLeft<4;nx.disabled=g.scrollLeft+g.clientWidth>=g.scrollWidth-4};
+  pv.onclick=()=>g.scrollBy({left:-step()});nx.onclick=()=>g.scrollBy({left:step()});
+  g.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();})();
+
+/* entrada suave */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ===== CURSOR ASSINATURA: rastro de caneta que some aos poucos ===== */
+(function(){
+  if(matchMedia('(pointer:coarse)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const c=document.getElementById('ink'),x=c.getContext('2d');let dpr=1,pts=[];
+  const LIFE=900; // ms até o traço sumir
+  function size(){dpr=Math.min(devicePixelRatio||1,2);c.width=innerWidth*dpr;c.height=innerHeight*dpr;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px'}
+  size();addEventListener('resize',size);
+  addEventListener('pointermove',e=>{
+    const t=performance.now(),p=pts[pts.length-1];
+    if(p){const d=Math.hypot(e.clientX-p.x,e.clientY-p.y);if(d<1.5)return;
+      // velocidade define a espessura: rápido = fino, lento = mais grosso (como caneta)
+      const v=d/Math.max(t-p.t,1);pts.push({x:e.clientX,y:e.clientY,t,w:Math.max(.6,Math.min(2.6,2.6-v*.9))})}
+    else pts.push({x:e.clientX,y:e.clientY,t,w:1.6});
+  });
+  document.addEventListener('mouseleave',()=>pts.push(null));
+  (function draw(){
+    const now=performance.now();
+    pts=pts.filter(p=>p===null||now-p.t<LIFE);
+    while(pts[0]===null)pts.shift();
+    x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,innerWidth,innerHeight);
+    x.lineCap='round';x.lineJoin='round';
+    for(let i=1;i<pts.length-1;i++){
+      const a=pts[i-1],b=pts[i],n=pts[i+1];if(!a||!b||!n)continue;
+      const life=1-(now-b.t)/LIFE;
+      x.beginPath();
+      x.moveTo((a.x+b.x)/2,(a.y+b.y)/2);
+      x.quadraticCurveTo(b.x,b.y,(b.x+n.x)/2,(b.y+n.y)/2);
+      x.strokeStyle=`rgba(242,238,232,${.85*life})`;
+      x.lineWidth=b.w*(.35+.65*life);
+      x.stroke();
+    }
+    requestAnimationFrame(draw);
+  })();
+})();
+</script>
+</body>
+</html>

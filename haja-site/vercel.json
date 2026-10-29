@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/imobiliaria", "destination": "/imobiliaria/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/imobiliaria/", "destination": "https://haja-imobiliario.vercel.app/" },
+    { "source": "/imobiliaria/:path*", "destination": "https://haja-imobiliario.vercel.app/:path*" }
+  ],
+  "trailingSlash": false
+}
